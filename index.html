@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Video Project</title>
+</head>
+
+<body>
+    <div class="preloader-container">
+        <div class="preloader">
+            <img src="preloader.gif" alt="">
+        </div>
+    </div>
+
+    <header>
+        <video class="video-container" muted autoplay loop>
+            <source src="video.mp4" type="video/mp4" />
+        </video>
+        <h1>Video Project</h1>
+
+        <button class="switch-button">
+            <span>Play</span>
+            <span>Pause</span>
+            <span class="switch"></span>
+        </button>
+    </header>
+</body>
+
+<script>
+    const video = document.querySelector('.video-container');
+    const switchbtn = document.querySelector('.switch');
+
+    switchbtn.addEventListener('click', function () {
+        if (!switchbtn.classList.contains('slide-right')) {
+            switchbtn.classList.add('slide-right');
+            switchbtn.classList.remove('slide-left')
+            video.pause();
+        } else if (!switchbtn.classList.contains('slide-left')) {
+            switchbtn.classList.add('slide-left');
+            switchbtn.classList.remove('slide-right');
+            video.play();
+        }
+    });
+
+    const preloader = document.querySelector('.preloader-container');
+    window.addEventListener('load', () => {
+        preloader.classList.add('hide-preloader')
+    });
+</script>
+
+</html>
